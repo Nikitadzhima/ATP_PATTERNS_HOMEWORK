@@ -20,7 +20,6 @@ class Island_card : public Card {
   private:
     int number;
   public:
-    Island_card() = delete;
     Island_card(int new_number);
     
     int get_number();

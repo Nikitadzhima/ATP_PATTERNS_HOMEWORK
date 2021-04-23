@@ -1,5 +1,6 @@
 #include "Field.h"
 
+Field* Field::field = nullptr;
 
 Field::Field() {
     side_size = Game_settings::get_instance()->get_field_side_length();

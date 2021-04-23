@@ -1,4 +1,4 @@
-#include "Cards.h"
+#include "Card.h"
 #include "Game_settings.h"
 
 #include<vector>
@@ -47,4 +47,3 @@ class Field {
         return field;
     }
 };
-Field* Field::field = nullptr;

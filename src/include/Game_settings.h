@@ -14,10 +14,15 @@ class Game_settings {
 
     static Game_settings* game_settings;
 
-    Game_settings(size_t new_monster_cards_cnt = 0): field_side_length(8),
-                monster_cards_cnt(new_monster_cards_cnt), island_cards_cnt(80), 
-                start_cards_cnt(1), finish_cards_cnt(5), max_cards_in_hand(5),
-                cards_discard_with_start(8) {}
+    Game_settings(size_t new_monster_cards_cnt = 0) {
+        field_side_length = 8;
+        monster_cards_cnt = new_monster_cards_cnt;
+        island_cards_cnt = 80;
+        start_cards_cnt = 1;
+        finish_cards_cnt = 5;
+        max_cards_in_hand = 5;
+        cards_discard_with_start = 8;
+    }
   public:
     Game_settings() = delete;
     Game_settings(Game_settings& other) = delete;
@@ -53,4 +58,4 @@ class Game_settings {
     }
 };
 
-Game_settings* Game_settings::game_settings = nullptr;
+//Game_settings* Game_settings::game_settings = nullptr;
