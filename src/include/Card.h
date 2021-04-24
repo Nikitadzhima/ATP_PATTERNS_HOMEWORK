@@ -3,30 +3,30 @@
 class Card {
   public:
     virtual void play(int x, int y) = 0;
-    void move_to_discard();
+    void moveToDiscard();
 };
 
-class Start_card : public Card {
+class StartCard : public Card {
   public:
     void play(int x, int y) override;
 };
 
-class Finish_card : public Card {
+class FinishCard : public Card {
   public:
     void play(int x, int y) override;
 };
 
-class Island_card : public Card {
+class IslandCard : public Card {
   private:
     int number;
   public:
-    Island_card(int new_number);
+    IslandCard(int newNumber);
     
-    int get_number();
+    int getNumber();
     void play(int x, int y) override;
 };
 
-class Monster_card : public Card {
+class MonsterCard : public Card {
   public:
     void play(int x, int y) override;
 };

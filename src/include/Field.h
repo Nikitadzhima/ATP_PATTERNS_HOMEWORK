@@ -1,5 +1,5 @@
 #include "Card.h"
-#include "Game_settings.h"
+#include "GameSettings.h"
 
 #include<vector>
 
@@ -8,20 +8,20 @@
 
 class Ceil{
   private:
-    bool is_border;
-    bool is_empty;
+    bool isBorder;
+    bool isEmpty;
     Card* card;
     Ceil* next;
     Ceil* previous;
   public:
     Ceil() = delete;
-    Ceil(bool is_a_border);
+    Ceil(bool isABorder);
     
-    void set_next(Ceil* nxt);
-    void set_previous(Ceil* prev);
+    void setNext(Ceil* nxt);
+    void setPrevious(Ceil* prev);
     
-    void add_card(Card* card);
-    void delete_card();
+    void addCard(Card* card);
+    void deleteCard();
     
     ~Ceil() = default;
 };
@@ -29,8 +29,8 @@ class Ceil{
 
 class Field {
   private:
-    size_t side_size;
-    int cards_cnt;
+    size_t sideSize;
+    int cardsCnt;
     std::vector<std::vector<Ceil*>> ceils;
 
     static Field* field;
@@ -40,7 +40,7 @@ class Field {
     Field(Field& other) = delete;
     void operator=(const Field& other) = delete;
 
-    static Field* get_instance() {
+    static Field* getInstance() {
         if (field == nullptr) {
             field = new Field();
         }
