@@ -1,5 +1,4 @@
 #include "Card.h"
-#include "Game_settings.h"
 
 #include<vector>
 

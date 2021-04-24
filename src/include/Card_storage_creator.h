@@ -1,4 +1,5 @@
 #include "Card_storage.h"
+#include "Game_settings.h"
 
 #pragma once
 

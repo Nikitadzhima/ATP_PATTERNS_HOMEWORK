@@ -57,5 +57,3 @@ class Game_settings {
         return cards_discard_with_start;
     }
 };
-
-//Game_settings* Game_settings::game_settings = nullptr;
