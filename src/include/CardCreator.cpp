@@ -12,7 +12,3 @@ Card* FinishCardCreator::createCard(size_t number) {
 Card* IslandCardCreator::createCard(size_t number) {
     return new IslandCard(number);
 }
-
-Card* MonsterCardCreator::createCard(size_t number) {
-    return new MonsterCard();
-}

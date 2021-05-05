@@ -25,8 +25,3 @@ class IslandCard : public Card {
     int getNumber();
     void play(int x, int y) override;
 };
-
-class MonsterCard : public Card {
-  public:
-    void play(int x, int y) override;
-};

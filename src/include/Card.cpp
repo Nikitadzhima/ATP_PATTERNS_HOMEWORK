@@ -12,10 +12,6 @@ void IslandCard::play(int x, int y) {
 
 }
 
-void MonsterCard::play(int x, int y) {
-
-}
-
 int IslandCard::getNumber() {
     return number;
 }

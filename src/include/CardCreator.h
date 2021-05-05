@@ -22,8 +22,3 @@ class IslandCardCreator : public CardCreator {
   public:
     Card* createCard(size_t number) override;
 };
-
-class MonsterCardCreator : public CardCreator {
-  public:
-    Card* createCard(size_t number) override;
-};

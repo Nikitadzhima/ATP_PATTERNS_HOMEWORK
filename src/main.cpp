@@ -4,6 +4,5 @@
 #include "include/CardStorageCreator.h"
 
 int main() {
-    size_t monsterCardsCntDefinedByUser = 0;
-    GameSettings* gameSettings = GameSettings::getInstance(monsterCardsCntDefinedByUser); // create settings
+    GameSettings* gameSettings = GameSettings::getInstance();
 }
