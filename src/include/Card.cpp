@@ -14,15 +14,15 @@ IslandCard::IslandCard(int newNumber) {
 }
 
 
-void StartCard::play(int x, int y) {
+void StartCard::play(int x, int y) { // not done yet
     
 }
 
-void FinishCard::play(int x, int y) {
+void FinishCard::play(int x, int y) { // not done yet
 
 }
 
-void IslandCard::play(int x, int y) {
+void IslandCard::play(int x, int y) { // not done yet
 
 }
 

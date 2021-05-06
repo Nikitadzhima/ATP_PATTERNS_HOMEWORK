@@ -21,7 +21,7 @@ class Ceil{
     void setNext(Ceil* nxt);
     void setPrevious(Ceil* prev);
     
-    void addCard(Card* card);
+    void addCard(Card* newCard);
     void deleteCard();
     
     ~Ceil() = default;
@@ -33,20 +33,7 @@ class Field {
     size_t sideSize;
     int cardsCnt;
     std::vector<std::vector<Ceil*>> ceils;
-
-    static Field* field;
-
-    Field();
   public:
-    Field(Field& other) = delete;
-    void operator=(const Field& other) = delete;
-
-    static Field* getInstance() {
-        if (field == nullptr) {
-            field = new Field();
-        }
-        return field;
-    }
-
+    Field();
     std::vector<std::vector<Ceil*>> getCeils();
 };

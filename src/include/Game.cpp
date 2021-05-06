@@ -6,17 +6,12 @@
 
 void Game::prepare() {
     // create everything
-    DeckCreator deckCreator;
-    deck = reinterpret_cast<Deck*>(deckCreator.createCardStorage());
-    UserHandCreator userHandCreator;
-    userHand = reinterpret_cast<UserHand*>(userHandCreator.createCardStorage());
-    DiscardCreator discardCreator;
-    discard = reinterpret_cast<Discard*>(discardCreator.createCardStorage());
-    field = Field::getInstance();
+    deck = new CardStorage();
+    userHand = new CardStorage();
+    discard = new CardStorage();
+    field = new Field();
 
     std::vector<Card*> cards;
-    
-
     // adding startCards
     size_t startCardsCnt = GameSettings::getInstance()->getStartCardsCnt();
     StartCardCreator startCreator;
@@ -63,7 +58,7 @@ void Game::prepare() {
     }
 }
 
-void Game::start() {
+void Game::start() { // not done yet
     //while (true) {
         // printField
         // printUserHand

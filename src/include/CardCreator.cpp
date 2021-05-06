@@ -1,5 +1,4 @@
 #include "CardCreator.h"
-#include<cstddef>
 
 Card* StartCardCreator::createCard(size_t number) {
     return new StartCard();

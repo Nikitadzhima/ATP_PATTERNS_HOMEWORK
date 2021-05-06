@@ -1,15 +1,15 @@
 #include "Field.h"
 #include "CardCreator.h"
-#include "CardStorageCreator.h"
+#include "CardStorage.h"
 #include "PrintDecorator.h"
 
 #pragma once
 
 class Game {
   public:
-    Deck* deck;
-    UserHand* userHand;
-    Discard* discard;
+    CardStorage* deck;
+    CardStorage* userHand;
+    CardStorage* discard;
     Field* field;
 
     void prepare();

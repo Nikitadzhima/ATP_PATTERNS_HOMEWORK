@@ -14,15 +14,3 @@ class CardStorage {
     void deleteCard(Card* card);
     std::vector<Card*> getCards();
 };
-
-class Deck : public CardStorage {
-
-};
-
-class UserHand : public CardStorage {
-
-};
-
-class Discard : public CardStorage {
-
-};

@@ -48,10 +48,10 @@ class CardPrintDecorator {
     void print();
 };
 
-class UserHandPrintDecorator {
+class CardStoragePrintDecorator {
   public:
-    UserHand* userHand;
-    UserHandPrintDecorator(UserHand* newUserHand) : userHand(newUserHand) {}
+    CardStorage* cardStorage;
+    CardStoragePrintDecorator(CardStorage* newCardStorage) : cardStorage(newCardStorage) {}
     void print();
 };
 

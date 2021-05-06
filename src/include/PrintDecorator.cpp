@@ -1,4 +1,5 @@
 #include "PrintDecorator.h"
+
 #include<iostream>
 
 void StartCardPrintDecorator::print() {
@@ -23,15 +24,15 @@ void CardPrintDecorator::print() {
     }
 }
 
-void UserHandPrintDecorator::print() {
-    std::vector<Card*> cards = userHand->getCards();
+void CardStoragePrintDecorator::print() {
+    std::vector<Card*> cards = cardStorage->getCards();
     for (size_t i = 0; i < cards.size(); ++i) {
         std::cout << i + 1 << ".  ";
         CardPrintDecorator(cards[i]).print();
     }
 }
 
-void CeilPrintDecorator::print() {
+void CeilPrintDecorator::print() { // not done yet
     if (ceil->isBorder) {
         std::cout << "#";
     } else {
