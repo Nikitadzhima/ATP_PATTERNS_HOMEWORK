@@ -1,8 +1,9 @@
-#include "include/Field.h"
-#include "include/CardStorage.h"
-#include "include/CardCreator.h"
-#include "include/CardStorageCreator.h"
+#include "include/Game.h"
 
 int main() {
     GameSettings* gameSettings = GameSettings::getInstance();
+    Game* game = new Game();
+    game->prepare(); // create everythin and initialize
+    //game->start();
+    return 0;
 }

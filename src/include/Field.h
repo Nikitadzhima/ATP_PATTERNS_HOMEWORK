@@ -8,12 +8,13 @@
 
 class Ceil{
   private:
-    bool isBorder;
-    bool isEmpty;
     Card* card;
     Ceil* next;
     Ceil* previous;
   public:
+    bool isBorder;
+    bool isEmpty;
+    
     Ceil() = delete;
     Ceil(bool isABorder);
     
@@ -46,4 +47,6 @@ class Field {
         }
         return field;
     }
+
+    std::vector<std::vector<Ceil*>> getCeils();
 };

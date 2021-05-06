@@ -25,6 +25,10 @@ Field::Field() {
     }
 }
 
+std::vector<std::vector<Ceil*>> Field::getCeils() {
+    return ceils;
+}
+
 
 Ceil::Ceil(bool isABorder): isBorder(isABorder), isEmpty(true), 
             card(nullptr), next(nullptr), previous(nullptr) {}

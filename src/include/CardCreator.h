@@ -10,15 +10,15 @@ class CardCreator {
 
 class StartCardCreator : public CardCreator {
   public:
-    Card* createCard(size_t number) override;
+    Card* createCard(size_t number = 0) override;
 };
 
 class FinishCardCreator : public CardCreator {
   public:
-    Card* createCard(size_t number) override;
+    Card* createCard(size_t number = 0) override;
 };
 
 class IslandCardCreator : public CardCreator {
   public:
-    Card* createCard(size_t number) override;
+    Card* createCard(size_t number = 0) override;
 };
