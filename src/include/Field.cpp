@@ -1,7 +1,5 @@
 #include "Field.h"
 
-Field* Field::field = nullptr;
-
 Field::Field() {
     sideSize = GameSettings::getInstance()->getFieldSideLength();
     cardsCnt = 0;
@@ -25,6 +23,10 @@ Field::Field() {
     }
 }
 
+std::vector<std::vector<Ceil*>> Field::getCeils() {
+    return ceils;
+}
+
 
 Ceil::Ceil(bool isABorder): isBorder(isABorder), isEmpty(true), 
             card(nullptr), next(nullptr), previous(nullptr) {}
@@ -37,10 +39,12 @@ void Ceil::setPrevious(Ceil* prev) {
     previous = prev;
 }
 
-void Ceil::addCard(Card* card) {
-    
+void Ceil::addCard(Card* newCard) {
+    card = newCard;
+    isEmpty = false;
 }
 
 void Ceil::deleteCard() {
-    
+    card = nullptr;
+    isEmpty = true;
 }

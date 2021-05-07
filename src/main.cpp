@@ -1,9 +1,9 @@
-#include "include/Field.h"
-#include "include/CardStorage.h"
-#include "include/CardCreator.h"
-#include "include/CardStorageCreator.h"
+#include "include/Game.h"
 
 int main() {
-    size_t monsterCardsCntDefinedByUser = 0;
-    GameSettings* gameSettings = GameSettings::getInstance(monsterCardsCntDefinedByUser); // create settings
+    GameSettings* gameSettings = GameSettings::getInstance();
+    Game* game = new Game();
+    game->prepare(); // create everything and initialize
+    //game->start();
+    return 0;
 }

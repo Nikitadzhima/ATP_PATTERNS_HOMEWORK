@@ -1,19 +1,25 @@
+#include <string>
+
 #pragma once
 
 class Card {
   public:
-    virtual void play(int x, int y) = 0;
+    std::string cardName = "Card";
+
+    void play(int x, int y) {}
     void moveToDiscard();
 };
 
 class StartCard : public Card {
   public:
-    void play(int x, int y) override;
+    StartCard();
+    void play(int x, int y);
 };
 
 class FinishCard : public Card {
   public:
-    void play(int x, int y) override;
+    FinishCard();
+    void play(int x, int y);
 };
 
 class IslandCard : public Card {
@@ -23,10 +29,5 @@ class IslandCard : public Card {
     IslandCard(int newNumber);
     
     int getNumber();
-    void play(int x, int y) override;
-};
-
-class MonsterCard : public Card {
-  public:
-    void play(int x, int y) override;
+    void play(int x, int y);
 };

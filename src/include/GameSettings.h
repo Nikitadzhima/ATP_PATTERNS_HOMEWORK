@@ -5,7 +5,6 @@
 class GameSettings {
   private:
     size_t fieldSideLength;
-    size_t monsterCardsCnt;
     size_t islandCardsCnt;
     size_t startCardsCnt;
     size_t finishCardsCnt;
@@ -14,9 +13,8 @@ class GameSettings {
 
     static GameSettings* gameSettings;
 
-    GameSettings(size_t newMonsterCardsCnt = 0) {
+    GameSettings() {
         fieldSideLength = 8;
-        monsterCardsCnt = newMonsterCardsCnt;
         islandCardsCnt = 80;
         startCardsCnt = 1;
         finishCardsCnt = 5;
@@ -24,22 +22,18 @@ class GameSettings {
         cardsDiscardWithStart = 8;
     }
   public:
-    GameSettings() = delete;
     GameSettings(GameSettings& other) = delete;
     void operator=(const GameSettings& other) = delete;
 
-    static GameSettings* getInstance(size_t newMonsterCardsCnt = 0) {
+    static GameSettings* getInstance() {
         if (gameSettings == nullptr) {
-            gameSettings = new GameSettings(newMonsterCardsCnt);
+            gameSettings = new GameSettings();
         }
         return gameSettings;
     }
 
     size_t getFieldSideLength() {
         return fieldSideLength;
-    }
-    size_t getMonsterCardsCnt() {
-        return monsterCardsCnt;
     }
     size_t getIslandCardsCnt() {
         return islandCardsCnt;
