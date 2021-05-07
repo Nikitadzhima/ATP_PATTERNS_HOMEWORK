@@ -5,64 +5,57 @@
 #pragma once
 
 
-class StartCardPrintDecorator {
-  public:
-    StartCard* card;
-    StartCardPrintDecorator(Card* newCard) {
-        card = reinterpret_cast<StartCard*>(newCard);
-    }
-    StartCardPrintDecorator(StartCard* newCard) {
-        card = newCard;
-    }
-    void print();
-};
-
-class FinishCardPrintDecorator {
-  public:
-    FinishCard* card;
-    FinishCardPrintDecorator(Card* newCard) {
-        card = reinterpret_cast<FinishCard*>(newCard);
-    }
-    FinishCardPrintDecorator(FinishCard* newCard) {
-        card = newCard;
-    }
-    void print();
-};
-
-class IslandCardPrintDecorator {
-  public:
-    IslandCard* card;
-    IslandCardPrintDecorator(Card* newCard) {
-        card = reinterpret_cast<IslandCard*>(newCard);
-    }
-    IslandCardPrintDecorator(IslandCard* newCard) {
-        card = newCard;
-    }
-    void print();
-};
-
-class CardPrintDecorator {
-  public:
+class BaseCardPrintDecorator : public Card {
+  protected:
     Card* card;
-    CardPrintDecorator(Card* newCard) : card(newCard) {}
-    void print();
+  public:
+    BaseCardPrintDecorator() = default;
+    BaseCardPrintDecorator(Card* newCard) : card(newCard) {}
+    ~BaseCardPrintDecorator() = default;
+
+    virtual void print() = 0;
 };
 
-class CardStoragePrintDecorator {
+class StartCardPrintDecorator : public BaseCardPrintDecorator {
+  public:
+    StartCardPrintDecorator(Card* newCard) {
+        card = newCard;
+    }
+    void print() override;
+};
+
+class FinishCardPrintDecorator : public BaseCardPrintDecorator {
+  public:
+    FinishCardPrintDecorator(Card* newCard) {
+        card = newCard;
+    }
+    void print() override;
+};
+
+class IslandCardPrintDecorator : public BaseCardPrintDecorator {
+  public:
+    IslandCardPrintDecorator(Card* newCard) {
+        card = newCard;
+    }
+    void print() override;
+};
+
+
+class CardStoragePrintDecorator : public CardStorage {
   public:
     CardStorage* cardStorage;
     CardStoragePrintDecorator(CardStorage* newCardStorage) : cardStorage(newCardStorage) {}
     void print();
 };
 
-class CeilPrintDecorator {
+class CeilPrintDecorator : public Ceil {
   public:
     Ceil* ceil;
     CeilPrintDecorator(Ceil* newCeil) : ceil(newCeil) {}
     void print();
 };
 
-class FieldPrintDecorator {
+class FieldPrintDecorator : public Field {
   public:
     Field* field;
     FieldPrintDecorator(Field* newField) : field(newField) {}

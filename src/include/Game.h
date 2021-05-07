@@ -2,6 +2,7 @@
 #include "CardCreator.h"
 #include "CardStorage.h"
 #include "PrintDecorator.h"
+#include "GameSettings.h"
 
 #pragma once
 

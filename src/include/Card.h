@@ -6,20 +6,20 @@ class Card {
   public:
     std::string cardName = "Card";
 
-    virtual void play(int x, int y) = 0;
+    void play(int x, int y) {}
     void moveToDiscard();
 };
 
 class StartCard : public Card {
   public:
     StartCard();
-    void play(int x, int y) override;
+    void play(int x, int y);
 };
 
 class FinishCard : public Card {
   public:
     FinishCard();
-    void play(int x, int y) override;
+    void play(int x, int y);
 };
 
 class IslandCard : public Card {
@@ -29,5 +29,5 @@ class IslandCard : public Card {
     IslandCard(int newNumber);
     
     int getNumber();
-    void play(int x, int y) override;
+    void play(int x, int y);
 };

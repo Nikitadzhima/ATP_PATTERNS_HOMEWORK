@@ -7,33 +7,33 @@
 
 
 class Ceil{
-  private:
-    Card* card;
+  protected:
     Ceil* next;
     Ceil* previous;
   public:
     bool isBorder;
     bool isEmpty;
+    Card* card;
     
-    Ceil() = delete;
+    Ceil() = default;
     Ceil(bool isABorder);
+    ~Ceil() = default;
     
     void setNext(Ceil* nxt);
     void setPrevious(Ceil* prev);
     
     void addCard(Card* newCard);
     void deleteCard();
-    
-    ~Ceil() = default;
 };
 
 
 class Field {
-  private:
+  protected:
     size_t sideSize;
     int cardsCnt;
     std::vector<std::vector<Ceil*>> ceils;
   public:
     Field();
+    ~Field() = default;
     std::vector<std::vector<Ceil*>> getCeils();
 };

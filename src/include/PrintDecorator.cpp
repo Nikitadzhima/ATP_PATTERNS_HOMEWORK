@@ -14,21 +14,18 @@ void IslandCardPrintDecorator::print() {
     std::cout << reinterpret_cast<IslandCard*>(card)->getNumber() << '\n';
 }
 
-void CardPrintDecorator::print() {
-    if (card->cardName == "StartCard") {
-        StartCardPrintDecorator(card).print();
-    } else if (card->cardName == "FinishCard") {
-        FinishCardPrintDecorator(card).print();
-    } else if (card->cardName == "IslandCard") {
-        IslandCardPrintDecorator(card).print();
-    }
-}
-
 void CardStoragePrintDecorator::print() {
     std::vector<Card*> cards = cardStorage->getCards();
     for (size_t i = 0; i < cards.size(); ++i) {
         std::cout << i + 1 << ".  ";
-        CardPrintDecorator(cards[i]).print();
+        if (cards[i]->cardName == "StartCard") {
+            StartCardPrintDecorator xx(cards[i]);
+            StartCardPrintDecorator(cards[i]).print();
+        } else if (cards[i]->cardName == "FinishCard") {
+            FinishCardPrintDecorator(cards[i]).print();
+        } else if (cards[i]->cardName == "IslandCard") {
+            IslandCardPrintDecorator(cards[i]).print();
+        }
     }
 }
 
