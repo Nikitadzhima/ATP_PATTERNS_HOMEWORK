@@ -29,20 +29,61 @@ void CardStoragePrintDecorator::print() {
     }
 }
 
-void CeilPrintDecorator::print() { // not done yet
+void CeilPrintDecorator::print() {
     if (ceil->isBorder) {
-        std::cout << "#";
-    } else {
-        std::cout << ".";
+        std::cout << "####";
+    } else if (ceil->isEmpty) {
+        std::cout << " .. ";
+    } else if (ceil->card->cardName == "StartCard") {
+        std::cout << " OK ";
+    } else if (ceil->card->cardName == "FinishCard") {
+        std::cout << " OK ";
+    } else if (ceil->card->cardName == "IslandCard") {
+        size_t number = reinterpret_cast<IslandCard*>(ceil->card)->getNumber();
+        std::cout << " ";
+        if (number < 10) {
+            std::cout << " ";
+        }
+        std::cout << number;
+        std::cout << " ";
     }
 }
 
 void FieldPrintDecorator::print() {
     std::vector<std::vector<Ceil*>> ceils = field->getCeils();
-    for (int i = int(ceils.size()) - 1; i >= 0; --i) {
-        for (int j = 0; j < ceils[i].size(); ++j) {
+    int height = ceils.size();
+    int width = ceils[0].size();
+    std::cout << "      ";
+    std::cout << " ";
+    for (int j = 0; j < width; ++j) {
+        std::cout << "____ ";
+    }
+    std::cout << '\n';
+    for (int i = height - 1; i >= 0; --i) {
+        std::cout << "      ";
+        std::cout << "|";
+        for (int j = 0; j < width; ++j) {
+            std::cout << "    |";
+        }
+        std::cout << '\n';
+        std::cout << " row" << i << " ";
+        std::cout << "|";
+        for (int j = 0; j < width; ++j) {
             CeilPrintDecorator(ceils[i][j]).print();
+            std::cout << "|";
+        }
+        std::cout << '\n';
+        std::cout << "      ";
+        std::cout << "|";
+        for (int j = 0; j < width; ++j) {
+            std::cout << "____|";
         }
         std::cout << '\n';
     }
+    std::cout << '\n';
+    std::cout << "       ";
+    for (size_t j = 0; j < width; ++j) {
+        std::cout << "col" << j << " ";
+    }
+    std::cout << "\n\n";
 }

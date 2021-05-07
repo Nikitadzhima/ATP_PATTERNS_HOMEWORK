@@ -56,6 +56,8 @@ void Game::prepare() {
         userHand->addCard(newCard);
         deck->deleteCard(newCard);
     }
+    FieldPrintDecorator(field).print();
+    CardStoragePrintDecorator(userHand).print();
 }
 
 void Game::start() { // not done yet
