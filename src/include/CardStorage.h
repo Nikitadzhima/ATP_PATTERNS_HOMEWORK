@@ -5,11 +5,10 @@
 #pragma once
 
 class CardStorage {
-  protected:
-    std::vector<Card*> cards;
   public:
+    std::vector<Card*> cards;
+
     size_t size();
     void addCard(Card* card);
     void deleteCard(Card* card);
-    std::vector<Card*> getCards();
 };

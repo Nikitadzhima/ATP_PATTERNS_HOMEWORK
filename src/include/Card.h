@@ -2,32 +2,37 @@
 
 #pragma once
 
+class Field;
+class CardStorage;
+
 class Card {
   public:
     std::string cardName = "Card";
 
-    void play(int x, int y) {}
-    void moveToDiscard();
+    bool canBePlayed(int x, int y, Field* field, CardStorage* userHand) { return false; }
+    void play(int x, int y, Field* field, CardStorage* userHand, CardStorage* deck, CardStorage* discard) {}
+    void moveToDiscard(CardStorage* discard);
 };
 
 class StartCard : public Card {
   public:
     StartCard();
-    void play(int x, int y);
+    bool canBePlayed(int x, int y, Field* field, CardStorage* userHand);
+    void play(int x, int y, Field* field, CardStorage* userHand, CardStorage* deck, CardStorage* discard);
 };
 
 class FinishCard : public Card {
   public:
     FinishCard();
-    void play(int x, int y);
+    bool canBePlayed(int x, int y, Field* field, CardStorage* userHand);
+    void play(int x, int y, Field* field, CardStorage* userHand, CardStorage* deck, CardStorage* discard);
 };
 
 class IslandCard : public Card {
-  private:
-    int number;
   public:
+    int number;
     IslandCard(int newNumber);
     
-    int getNumber();
-    void play(int x, int y);
+    bool canBePlayed(int x, int y, Field* field, CardStorage* userHand);
+    void play(int x, int y, Field* field, CardStorage* userHand, CardStorage* deck, CardStorage* discard);
 };

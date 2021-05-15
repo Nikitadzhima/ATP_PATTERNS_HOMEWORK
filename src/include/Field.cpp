@@ -17,27 +17,16 @@ Field::Field() {
             if (i == sideSize - 2 && j == sideSize - 2) continue;
             size_t x = (j < sideSize - 2 ? i : i + 1);
             size_t y = (j < sideSize - 2 ? j + 1 : 1);
-            ceils[i][j]->setNext(ceils[x][y]);
-            ceils[x][y]->setPrevious(ceils[i][j]);
+            ceils[i][j]->next = ceils[x][y];
+            ceils[x][y]->previous = ceils[i][j];
         }
     }
-}
-
-std::vector<std::vector<Ceil*>> Field::getCeils() {
-    return ceils;
 }
 
 
 Ceil::Ceil(bool isABorder): isBorder(isABorder), isEmpty(true), 
             card(nullptr), next(nullptr), previous(nullptr) {}
 
-void Ceil::setNext(Ceil* nxt) {
-    next = nxt;
-}
-
-void Ceil::setPrevious(Ceil* prev) {
-    previous = prev;
-}
 
 void Ceil::addCard(Card* newCard) {
     card = newCard;

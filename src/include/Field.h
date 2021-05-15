@@ -7,10 +7,9 @@
 
 
 class Ceil{
-  protected:
+  public:
     Ceil* next;
     Ceil* previous;
-  public:
     bool isBorder;
     bool isEmpty;
     Card* card;
@@ -19,21 +18,17 @@ class Ceil{
     Ceil(bool isABorder);
     ~Ceil() = default;
     
-    void setNext(Ceil* nxt);
-    void setPrevious(Ceil* prev);
-    
     void addCard(Card* newCard);
     void deleteCard();
 };
 
 
 class Field {
-  protected:
+  public:
     size_t sideSize;
     int cardsCnt;
     std::vector<std::vector<Ceil*>> ceils;
-  public:
+
     Field();
     ~Field() = default;
-    std::vector<std::vector<Ceil*>> getCeils();
 };
