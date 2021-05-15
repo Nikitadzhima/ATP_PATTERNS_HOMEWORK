@@ -19,7 +19,3 @@ void CardStorage::deleteCard(Card* card) {
       }
    }
 }
-
-std::vector<Card*> CardStorage::getCards() {
-   return cards; 
-}
