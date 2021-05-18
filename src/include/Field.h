@@ -26,9 +26,9 @@ class Ceil{
 class Field {
   public:
     size_t sideSize;
-    int cardsCnt;
     std::vector<std::vector<Ceil*>> ceils;
 
+    int cardsCnt();
     Field();
     ~Field() = default;
 };

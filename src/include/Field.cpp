@@ -2,7 +2,6 @@
 
 Field::Field() {
     sideSize = GameSettings::getInstance()->getFieldSideLength();
-    cardsCnt = 0;
     ceils.resize(sideSize);
     for (auto& row : ceils) {
         row.resize(sideSize);
@@ -21,6 +20,18 @@ Field::Field() {
             ceils[x][y]->previous = ceils[i][j];
         }
     }
+}
+
+int Field::cardsCnt() {
+    int cnt = 0;
+    for (int i = 0; i < sideSize; ++i) {
+        for (int j = 0; j < sideSize; ++j) {
+            if (ceils[i][j] && !ceils[i][j]->isEmpty) {
+                ++cnt;
+            }
+        }
+    }
+    return cnt;
 }
 
 

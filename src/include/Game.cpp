@@ -149,7 +149,7 @@ void Game::makeTurn() { // not done yet
     } else if (option == userHand->size() + 2) {
         gameOver = true;
     }
-    if (field->cardsCnt == (field->sideSize - 2) * (field->sideSize - 2) + 2) {
+    if (field->cardsCnt() == (field->sideSize - 2) * (field->sideSize - 2) + 2) {
         gameOver = true;
     }
     while (deck->size() > 0 && userHand->size() < GameSettings::getInstance()->getMaxCardsInHand()) {
@@ -163,7 +163,7 @@ void Game::showFinalResult() {
     system("clear");
     FieldPrintDecorator(field).print();
 
-    if (field->cardsCnt == (field->sideSize - 2) * (field->sideSize - 2) + 2) { // if user won
+    if (field->cardsCnt() == (field->sideSize - 2) * (field->sideSize - 2) + 2) { // if user won
         PrintTextCommand("CONGRATULATIONS! YOU DID IT!").execute();
     } else {
         PrintTextCommand("GAME OVER. Maybe next time.").execute();

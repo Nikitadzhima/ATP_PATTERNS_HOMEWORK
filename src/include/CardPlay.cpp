@@ -61,7 +61,7 @@ bool FinishCard::canBePlayed(int x, int y, Field* field, CardStorage* userHand) 
         }
     }
     int sz = field->sideSize;
-    return x == sz - 1 && y == sz - 1 && field->cardsCnt == (sz - 2) * (sz - 2) + 1;
+    return x == sz - 1 && y == sz - 1 && field->cardsCnt() == (sz - 2) * (sz - 2) + 1;
 }
 
 void FinishCard::play(int x, int y, Field* field, CardStorage* userHand, CardStorage* deck, CardStorage* discard) {
